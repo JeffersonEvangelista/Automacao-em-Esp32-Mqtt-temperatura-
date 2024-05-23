@@ -27,10 +27,10 @@ Este projeto é uma estação meteorológica baseada no ESP32 que monitora a tem
 
 ## Conexões de Hardware
 
-- **DHT22**: Pino de dados ao GPIO 15 do ESP32 com um resistor pull-up de 10kΩ.
-- **LCD I2C**: SDA ao GPIO 21 e SCL ao GPIO 22 do ESP32.
-- **LED**: Ânodo do LED ao GPIO 2 do ESP32 com um resistor de 220Ω e cátodo ao GND.
-- **Buzzer**: Pino positivo ao GPIO 8 do ESP32 e pino negativo ao GND.
+ - DHT22: Pino de dados conectado ao GPIO 15 do ESP32
+ - LCD I2C: Conectado aos pinos I2C (SDA, SCL) do ESP32
+ - Buzzer: Conectado ao GPIO 13 do ESP32
+ - LED: Conectado ao GPIO 2 do ESP32
 
 ## Configuração
 
@@ -51,10 +51,12 @@ Este projeto é uma estação meteorológica baseada no ESP32 que monitora a tem
 
 ## Como Usar
 
-1. O ESP32 se conectará à rede Wi-Fi especificada e sincronizará a hora local.
-2. Os dados de temperatura e umidade serão lidos a cada 10 segundos e exibidos no LCD.
-3. Se a temperatura estiver fora dos limites definidos, o LED será aceso e, em caso de temperatura crítica (acima de 60°C), o buzzer será ativado.
-4. Os dados de temperatura e umidade serão publicados no broker MQTT especificado.
+Após carregar o código no ESP32:
+
+O dispositivo se conectará ao Wi-Fi e ao broker MQTT.
+O LCD exibirá a mensagem de inicialização e atualizará com os dados de temperatura e umidade a cada 10 segundos.
+Se a temperatura ultrapassar 60°C, o buzzer emitirá um som de sirene e o LED piscará.
+A mensagem "Vai, Corinthians!" será exibida no LCD após a leitura dos dados.
 
 ## Licença
 
